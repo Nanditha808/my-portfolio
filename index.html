@@ -3,29 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lens & Code · bold new image design</title>
+  <title>Design Intern · Creative Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0f172a;
       --text:#ffffff;
+      --heading:#ffffff;
       --glass:rgba(255,255,255,0.06);
       --glass-edge:rgba(255,255,255,0.1);
-      --accent1:#6366f1;
+      --accent1:#3b82f6;
       --accent2:#8b5cf6;
-      --accent-glow:rgba(99,102,241,0.3);
+      --accent-glow:rgba(59,130,246,0.3);
       --card-bg:rgba(15,23,42,0.5);
       --border-light:rgba(255,255,255,0.05);
+      --soft-tag-bg:rgba(255,255,255,0.06);
+      --gradient-text:linear-gradient(145deg, #60a5fa, var(--accent2));
+      --card-heading:#ffffff;
+      --badge-bg:rgba(15,23,42,0.8);
+      --badge-text:#ffffff;
     }
 
     body.light{
       --bg:#f8fafc;
       --text:#0b1e33;
-      --glass:rgba(255,255,255,0.4);
-      --glass-edge:rgba(0,0,0,0.05);
-      --card-bg:rgba(255,255,255,0.5);
-      --border-light:rgba(0,0,0,0.05);
-      --accent-glow:rgba(99,102,241,0.2);
+      --heading:#0c1a2b;
+      --glass:rgba(255,255,255,0.7);
+      --glass-edge:rgba(0,0,0,0.08);
+      --card-bg:rgba(255,255,255,0.75);
+      --border-light:rgba(0,0,0,0.08);
+      --accent-glow:rgba(59,130,246,0.25);
+      --soft-tag-bg:rgba(0,0,0,0.03);
+      --gradient-text:linear-gradient(145deg, #1e4a8b, #5b3b8c);
+      --card-heading:#0b1e33;
+      --badge-bg:rgba(255,255,255,0.85);
+      --badge-text:#0b1e33;
     }
 
     *{
@@ -91,7 +103,7 @@
       font-weight:700;
       font-size:22px;
       letter-spacing:-0.5px;
-      background:linear-gradient(145deg, #a5b4fc, var(--accent2));
+      background:var(--gradient-text);
       -webkit-background-clip:text;
       color:transparent;
     }
@@ -158,14 +170,15 @@
     }
 
     .hero h1{
-      font-size:62px;
+      font-size:58px;
       font-weight:700;
       line-height:1.15;
       letter-spacing:-1.5px;
+      color:var(--heading);
     }
 
     .hero span{
-      background:linear-gradient(145deg,var(--accent1),var(--accent2));
+      background:var(--gradient-text);
       -webkit-background-clip:text;
       color:transparent;
       display:inline-block;
@@ -174,7 +187,7 @@
     .hero p{
       margin-top:25px;
       font-size:18px;
-      opacity:0.8;
+      opacity:0.9;
       font-weight:300;
       max-width:480px;
     }
@@ -193,9 +206,13 @@
     .hero-highlight-item .number{
       font-size:28px;
       font-weight:700;
-      background:linear-gradient(145deg,var(--accent1),var(--accent2));
+      background:var(--gradient-text);
       -webkit-background-clip:text;
       color:transparent;
+    }
+    .hero-highlight-item span:last-child {
+      color:var(--text);
+      opacity:0.8;
     }
 
     .btn{
@@ -219,8 +236,7 @@
       box-shadow:0 22px 38px var(--accent-glow);
     }
 
-    /* ––––– NEW BOLD IMAGE DESIGN ––––– */
-    /* completely different aesthetic: split diagonal + geometric accent */
+    /* ––––– BOLD IMAGE DESIGN ––––– */
     .hero-img{
       position:relative;
       display:flex;
@@ -241,19 +257,17 @@
       clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
     }
 
-    /* diagonal split background – vibrant geometric */
     .diagonal-bg {
       position:absolute;
       top:0;
       left:0;
       width:100%;
       height:100%;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 40%, #0f172a 80%);
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 40%, #0f172a 80%);
       opacity:0.9;
       z-index:1;
     }
 
-    /* abstract mesh pattern overlay */
     .mesh-overlay {
       position:absolute;
       top:0;
@@ -270,7 +284,6 @@
       mix-blend-mode:overlay;
     }
 
-    /* portrait – placed with bold crop, duotone effect */
     .portrait {
       position:absolute;
       top:0;
@@ -282,18 +295,17 @@
       object-position: 50% 20%;
       mix-blend-mode:hard-light;
       opacity:0.75;
-      filter: grayscale(0.6) contrast(1.2) brightness(0.9);
+      filter: grayscale(0.5) contrast(1.2) brightness(0.95);
       transition:all 0.4s ease;
     }
 
     .image-frame:hover .portrait {
       mix-blend-mode:soft-light;
       opacity:0.9;
-      filter: grayscale(0.3) contrast(1.1) brightness(1);
+      filter: grayscale(0.2) contrast(1.1) brightness(1);
       transform:scale(1.02);
     }
 
-    /* bold color accent shape */
     .accent-shape {
       position:absolute;
       bottom:-20px;
@@ -314,7 +326,6 @@
       100%{ border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg); }
     }
 
-    /* second accent - neon line */
     .neon-stroke {
       position:absolute;
       top:15px;
@@ -327,12 +338,11 @@
       opacity:0.8;
     }
 
-    /* badge – new position, brutalist style */
     .image-badge {
       position:absolute;
       bottom:20px;
       left:20px;
-      background:rgba(15,23,42,0.8);
+      background:var(--badge-bg);
       backdrop-filter:blur(16px);
       padding:14px 28px;
       border-radius:0px;
@@ -340,7 +350,7 @@
       font-weight:700;
       font-size:16px;
       box-shadow:0 12px 25px rgba(0,0,0,0.3);
-      color:white;
+      color:var(--badge-text);
       display:flex;
       align-items:center;
       gap:10px;
@@ -348,17 +358,11 @@
       letter-spacing:1px;
     }
 
-    .light .image-badge {
-      color:white;
-      background:rgba(30,41,59,0.9);
-    }
-
     .image-badge::before {
-      content:"⚡";
+      content:"👋";
       font-size:20px;
     }
 
-    /* floating animation – more dynamic */
     .image-frame {
       animation: diagonalFloat 8s ease-in-out infinite;
     }
@@ -369,7 +373,6 @@
       100% { transform: rotate(2deg) translateY(0px) translateX(0px); }
     }
 
-    /* stats / glass cards */
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
@@ -388,7 +391,7 @@
     }
 
     .card:hover{
-      transform:translateY(-10px) scale(1.01);
+      transform:translateY(-8px);
       background:var(--glass);
       border-color:var(--accent-glow);
     }
@@ -397,15 +400,18 @@
       font-size:24px;
       font-weight:600;
       margin-bottom:12px;
+      color:var(--card-heading);
     }
 
     .card p{
-      opacity:0.8;
+      opacity:0.9;
       font-size:16px;
+      line-height:1.7;
+      color:var(--text);
     }
 
     .skill-tag{
-      background:var(--glass);
+      background:var(--soft-tag-bg);
       border:1px solid var(--border-light);
       border-radius:100px;
       padding:12px 22px;
@@ -413,12 +419,15 @@
       text-align:center;
       backdrop-filter:blur(10px);
       transition:0.2s;
+      font-size:15px;
+      color:var(--text);
     }
 
     .skill-tag:hover{
       background:linear-gradient(145deg, var(--accent1), var(--accent2));
       color:white;
       border-color:transparent;
+      transform:translateY(-2px);
     }
 
     /* contact card extra */
@@ -437,6 +446,9 @@
       align-items:center;
       gap:8px;
       backdrop-filter:blur(5px);
+      font-size:15px;
+      color:var(--text);
+      border:1px solid var(--border-light);
     }
 
     /* footer */
@@ -445,6 +457,7 @@
       padding:40px;
       opacity:0.7;
       border-top:1px solid var(--border-light);
+      color:var(--text);
     }
 
     /* reveal */
@@ -457,6 +470,45 @@
     .reveal.show{
       opacity:1;
       transform:translateY(0);
+    }
+
+    /* section headings */
+    section h2 {
+      color:var(--heading);
+    }
+    
+    section h2 span {
+      background:var(--gradient-text);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    /* inline gradient text used elsewhere */
+    .gradient-text {
+      background:var(--gradient-text);
+      -webkit-background-clip:text;
+      color:transparent;
+      display:inline-block;
+    }
+
+    /* card inner small text */
+    .card p, .card div, .card span {
+      color:var(--text);
+    }
+
+    .card span[style*="background"] {
+      color:var(--text);
+    }
+
+    /* soft skill chips */
+    div[style*="backdrop-filter"][style*="border-radius"] {
+      color:var(--text);
+      background:var(--soft-tag-bg) !important;
+    }
+
+    /* learning attitude box */
+    div[style*="background:linear-gradient(145deg, rgba(59,130,246,0.1)"] {
+      color:var(--text) !important;
     }
 
     @media(max-width:1000px){
@@ -481,10 +533,10 @@
 <div class="blob blob2"></div>
 
 <header>
-  <div class="logo">✦ Lens & Code</div>
+  <div class="logo">✦ Design Intern</div>
   <nav>
     <a href="#home" class="active">Home</a>
-    <a href="#work">Work</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -493,83 +545,86 @@
 
 <section class="hero reveal" id="home">
   <div class="hero-text">
-    <h1>Designing <span>beyond pixels</span> — human first.</h1>
-    <p>I'm Elena Voss — UI/UX designer & front-end alchemist. I transform complex ideas into elegant, accessible experiences.</p>
+    <h1>Eager to <span>create</span> and <span>learn</span> with your team.</h1>
+    <p>Hi, I'm Nanditha T — aspiring UI/UX designer, graduate, and enthusiastic intern ready to contribute to real-world projects.</p>
     
     <div class="hero-highlight">
       <div class="hero-highlight-item">
-        <span class="number">5+</span>
-        <span>years craft</span>
+        <span class="number">2023</span>
+        <span>grad</span>
       </div>
       <div class="hero-highlight-item">
-        <span class="number">24+</span>
-        <span>shipments</span>
+        <span class="number">3+</span>
+        <span>projects</span>
       </div>
       <div class="hero-highlight-item">
-        <span class="number">100%</span>
-        <span>user love</span>
+        <span class="number">1</span>
+        <span>Freelance</span>
       </div>
     </div>
 
-    <button class="btn">Explore portfolio</button>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Open to work</button>
   </div>
 
-  <!-- ===== COMPLETELY NEW BOLD DESIGN ===== -->
-  <!-- diagonal cut, duotone blend, geometric accents, brutalist badge -->
+  <!-- BOLD DESIGN WITH INTERN CONTENT -->
   <div class="hero-img">
     <div class="image-frame">
-      <!-- diagonal gradient background (vibrant) -->
       <div class="diagonal-bg"></div>
-      
-      <!-- abstract mesh pattern -->
       <div class="mesh-overlay"></div>
-      
-      <!-- floating organic accent shape (blurred) -->
       <div class="accent-shape"></div>
-      
-      <!-- neon corner stroke -->
       <div class="neon-stroke"></div>
       
       <!-- YOUR PORTRAIT – replace with your own image -->
-      <!-- hard-light + grayscale = bold duotone effect, very contemporary -->
       <img class="portrait" 
            src="one.jpeg"  
-           alt="Elena Voss – bold editorial portrait">
+           alt="Alex Chen – design intern portrait">
       
-      <!-- additional gritty texture (very subtle) -->
       <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>'); opacity:0.1; mix-blend-mode:soft-light; pointer-events:none; z-index:8;"></div>
     </div>
     
-    <!-- brutalist badge – left side, bold -->
     <div class="image-badge">
-      AVAILABLE FOR FREELANCE
+      ✨ SEEKING OPPORTUNITY
     </div>
   </div>
 </section>
 
-<!-- ===== WORK SECTION ===== -->
-<section class="reveal" id="work">
+<!-- ===== EDUCATION SECTION ===== -->
+<section class="reveal" id="education">
   <div style="width:100%;">
-    <h2 style="font-size:40px; font-weight:600; margin-bottom:20px;">Selected <span style="background:linear-gradient(145deg,var(--accent1),var(--accent2)); -webkit-background-clip:text; color:transparent;">projects</span></h2>
+    <h2 style="font-size:40px; font-weight:600; margin-bottom:20px;">Education & <span>coursework</span></h2>
     <div class="grid">
       <div class="card">
-        <h3>Fintech • N26</h3>
-        <p>End-to-end redesign – increased onboarding completion by 31%. Biometric flows & microinteractions.</p>
-        <div style="margin-top:18px; opacity:0.6;">#accessibility #motion</div>
+        <h3>BSc Physics</h3>
+        <p style="font-size:14px; opacity:0.7; margin-bottom:8px;">2020 – 2023</p>
+        <p>EKNM GOVT COLLEGE ELERITHATTU</p>
+        <div style="margin-top:18px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span style="background:rgba(139,92,246,0.2); padding:4px 12px; border-radius:20px; font-size:13px;">Design award College Hackathon</span>
+        </div>
       </div>
       <div class="card">
-        <h3>E‑commerce • Veloria</h3>
-        <p>Sustainable fashion. Improved cart retention by 44% with contextual recommendations.</p>
-        <div style="margin-top:18px; opacity:0.6;">#conversion #UXresearch</div>
-      </div>
+        <h3>Relevant coursework</h3>
+<p>🎨 <strong>Self-Learned UI/UX</strong><br>
+   • UI designs created in Figma (mobile apps, dashboards)<br>
+   • HTML5 & CSS3 - built responsive websites<br>
+   • React.js - basic components and functionality<br>
+   • Figma to code practice projects</p>
+
+<p>🤖 <strong>AI Course Projects</strong><br>
+   • Completed AI/ML fundamentals course<br>
+   • Built small AI-powered demo projects<br>
+   • Explored AI integration in app development</p>      </div>
       <div class="card">
-        <h3>Health • Medico</h3>
-        <p>Dashboard for radiologists — reduced cognitive load, custom data viz components.</p>
-        <div style="margin-top:18px; opacity:0.6;">#complexSaaS #designSystem</div>
-      </div>
-    </div>
-    <div style="display:flex; justify-content:center; margin-top:50px;">
-      <span style="background:var(--glass); padding:12px 32px; border-radius:50px; backdrop-filter:blur(8px);">+ 8 other case studies</span>
+        <h3>Certifications</h3>
+<p>🎓 <strong>Data Science Certifications</strong><br>
+   • Data Science & AI Course Completion<br>
+   • Python for Data Science Certification<br>
+   • Machine Learning Fundamentals<br>
+   • Data Analytics Training</p>
+
+<p>🎨 <strong>Self-Taught UI/UX</strong><br>
+   • Hands-on practice with Figma and design tools<br>
+   • Created multiple UI projects and prototypes<br>
+   • Learning through online resources and building</p>      </div>
     </div>
   </div>
 </section>
@@ -577,22 +632,72 @@
 <!-- ===== SKILLS ===== -->
 <section class="reveal" id="skills">
   <div style="width:100%;">
-    <h2 style="font-size:40px; font-weight:600; margin-bottom:40px;">Toolbox & <span style="background:linear-gradient(145deg,var(--accent1),var(--accent2)); -webkit-background-clip:text; color:transparent;">craft</span></h2>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:18px;">
-      <div class="skill-tag">User Research</div>
+    <h2 style="font-size:40px; font-weight:600; margin-bottom:20px;">Tools & <span>skills</span></h2>
+    <p style="margin-bottom:40px; max-width:600px; opacity:0.8;">Quick learner passionate about UI/UX design. Building skills through hands-on projects and continuous learning.</p>
+    
+    <!-- Technical Skills (Beginner-Friendly) -->
+    <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:15px; margin-bottom:40px;">
+      <div class="skill-tag">Figma</div>
+      <div class="skill-tag">HTML5</div>
+      <div class="skill-tag">CSS3</div>
+      <div class="skill-tag">Flutter</div>
+      <div class="skill-tag">Dart</div>
       <div class="skill-tag">Wireframing</div>
       <div class="skill-tag">Prototyping</div>
-      <div class="skill-tag">Figma · Framer</div>
-      <div class="skill-tag">Interaction Design</div>
-      <div class="skill-tag">Design Systems</div>
-      <div class="skill-tag">Usability Testing</div>
-      <div class="skill-tag">HTML5/CSS3/JS</div>
-      <div class="skill-tag">React</div>
-      <div class="skill-tag">Storybook</div>
-      <div class="skill-tag">Tailwind</div>
-      <div class="skill-tag">After Effects</div>
+      <div class="skill-tag">UI Design</div>
+      <div class="skill-tag">Responsive Design</div>
+      <div class="skill-tag">Git Basics</div>
     </div>
-    <p style="margin-top:60px; max-width:700px; opacity:0.8;">I bridge visual design and code — prototyping in Framer, then hand‑off with Storybook. Advocate for inclusive, data-informed interfaces.</p>
+    
+    <!-- Soft Skills - Expanded -->
+    <h3 style="font-size:24px; font-weight:600; margin-bottom:20px; text-align:center; color:var(--heading);">Soft <span style="background:var(--gradient-text); -webkit-background-clip:text; color:transparent;">skills</span></h3>
+    
+    <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:30px;">
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">⚡ Quick learner</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">🗣️ Communication</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">🤝 Team collaboration</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">💬 Active listening</span>
+    </div>
+    
+    <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center;">
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">📋 Detail oriented</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">⏰ Time management</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">💡 Problem solving</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">🔄 Adaptability</span>
+      <span style="background:var(--glass); padding:10px 25px; border-radius:40px; backdrop-filter:blur(8px); font-size:15px; border:1px solid var(--border-light);">📝 Feedback receptive</span>
+    </div>
+    
+    <!-- Learning Attitude -->
+    <div style="margin-top:50px; text-align:center; background:linear-gradient(145deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); padding:20px; border-radius:30px; max-width:700px; margin-left:auto; margin-right:auto;">
+      <p style="font-size:16px; opacity:0.9;">✨ Currently learning: Advanced Figma, React, and UI animations • Open to mentorship and guidance</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS SHOWCASE ===== -->
+<section class="reveal" id="projects" style="padding-top:60px;">
+  <div style="width:100%;">
+    <h2 style="font-size:40px; font-weight:600; margin-bottom:20px;">Student <span>projects</span></h2>
+    <div class="grid">
+    <div class="card">
+  <h3>Tappix · Student Attendance & Security</h3>
+  <p>Designed a comprehensive attendance management system with student security features. Created wireframes and interactive prototypes in Figma focusing on real-time tracking, secure check-ins, and parent/teacher dashboards.</p>
+  <div style="margin-top:18px; opacity:0.6;">#Figma #UI/UX #AttendanceSystem #StudentSecurity</div>
+</div>
+     <div class="card">
+  <h3>E-Commerce Website UI · Self-Study Project</h3>
+  <p>Designed a modern e-commerce website UI as a self-learning exercise. Created product listing pages, shopping cart, checkout flow, and user profiles in Figma. Focused on clean navigation, intuitive product discovery, and responsive layouts.</p>
+  <div style="margin-top:18px; opacity:0.6;">#SelfTaught #Figma #EcommerceUI #LearningProject</div>
+</div>
+  <div class="card">
+  <h3>Chat System UI · Self-Study Project</h3>
+  <p>Designed a modern chat application interface as a self-learning exercise. Created message threads, contact lists, chat bubbles, typing indicators, and profile screens in Figma. Focused on intuitive conversation flow and clean visual design.</p>
+  <div style="margin-top:18px; opacity:0.6;">#Figma #ChatUI #SelfTaught #MessagingDesign</div>
+</div>
+    </div>
+    <!-- <div style="display:flex; justify-content:center; margin-top:40px;">
+      <span style="background:var(--glass); padding:12px 32px; border-radius:50px; backdrop-filter:blur(8px);">📁 Portfolio and case studies available on request</span>
+    </div> -->
   </div>
 </section>
 
@@ -601,29 +706,46 @@
   <div style="width:100%;">
     <div class="grid">
       <div class="card" style="grid-column: span 1;">
-        <h3 style="font-size:28px;">Let's create ✦</h3>
-        <p style="margin-top:16px; font-size:18px;">I'm currently open for collaborations, design sprints, or freelance contracts.</p>
-        <div class="contact-links">
-          <span class="contact-icon">📧 elena@lenscode.design</span>
-          <span class="contact-icon">📱 +1 (415) 867‑5309</span>
+        <h3 style="font-size:28px;">Let's connect ✦</h3>
+<p style="margin-top:16px; font-size:18px;">I would be grateful for the opportunity to join your team in 2026, where I can learn from experienced mentors and contribute to meaningful projects.</p>        <div class="contact-links">
+          <span class="contact-icon">📧 nanditha808@gmail.com</span>
+          <span class="contact-icon">📱 +91 9207267808</span>
         </div>
-        <div style="margin-top:32px; display:flex; gap:18px;">
-          <span style="text-decoration:underline; text-underline-offset:8px;">LinkedIn</span>
-          <span style="text-decoration:underline; text-underline-offset:8px;">Dribbble</span>
-          <span style="text-decoration:underline; text-underline-offset:8px;">GitHub</span>
-        </div>
-      </div>
-      <div class="card" style="background:linear-gradient(145deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05)); backdrop-filter:blur(12px); display:flex; flex-direction:column; justify-content:center;">
-        <h3>Resume & case studies</h3>
-        <p style="margin-top:5px;">Download PDF portfolio with 42 pages of process.</p>
-        <button class="btn" style="margin-top:20px; padding:12px 28px; width:fit-content;">Download</button>
-      </div>
+<div style="margin-top:32px; display:flex; gap:25px; flex-wrap:wrap;">
+  <a href="" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); padding:8px 16px; border-radius:30px; background:var(--glass); border:1px solid var(--border-light); transition:0.3s;" 
+     onmouseover="this.style.transform='translateY(-3px)'" 
+     onmouseout="this.style.transform='translateY(0)'">
+    <span>📄</span> LinkedIn
+  </a>
+  <a href="https://behance.net/yourprofile" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); padding:8px 16px; border-radius:30px; background:var(--glass); border:1px solid var(--border-light); transition:0.3s;"
+     onmouseover="this.style.transform='translateY(-3px)'" 
+     onmouseout="this.style.transform='translateY(0)'">
+    <span>🎨</span> Behance
+  </a>
+  <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); padding:8px 16px; border-radius:30px; background:var(--glass); border:1px solid var(--border-light); transition:0.3s;"
+     onmouseover="this.style.transform='translateY(-3px)'" 
+     onmouseout="this.style.transform='translateY(0)'">
+    <span>💻</span> GitHub
+  </a>
+</div>      </div>
+      <div class="card" style="background:linear-gradient(145deg, rgba(59,130,246,0.1), rgba(139,92,246,0.05)); backdrop-filter:blur(12px); display:flex; flex-direction:column; justify-content:center;">
+        <h3>Resume & portfolio</h3>
+        <p style="margin-top:5px;">PDF resume · 1 page summary of education, skills, and projects.</p>
+<a href="nanditharesume.pdf" download="Nanditha_T_Resume.pdf" style="text-decoration:none;">
+  <button class="btn" style="margin-top:20px; padding:12px 28px; width:fit-content; cursor:pointer;">
+    Download resume
+  </button>
+</a>      </div>
+    </div>
+    <!-- availability notice -->
+    <div style="margin-top:40px; text-align:center; background:var(--glass); padding:20px; border-radius:60px; backdrop-filter:blur(10px); max-width:500px; margin-left:auto; margin-right:auto; border:1px solid var(--border-light);">
+      ⏳  Seeking an opportunity to learn, grow, and contribute with dedication.
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 Elena Voss — crafted with ⚡ and purpose.  <span style="display:inline-block; margin-left:10px; background:var(--glass); padding:4px 12px; border-radius:60px; font-size:14px;">v.2.0.1</span>
+  © 2026 Nanditha — enthusiastic learner, ready to work  <span style="display:inline-block; margin-left:10px; background:var(--glass); padding:4px 12px; border-radius:60px; font-size:14px;">intern portfolio</span>
 </footer>
 
 <script>
@@ -679,6 +801,12 @@
       }
     });
   });
+
+  // Add projects to nav highlighting
+  const projectsSection = document.getElementById('projects');
+  if (projectsSection) {
+    // handle projects link manually
+  }
 </script>
 
 </body>
